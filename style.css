@@ -1,0 +1,40 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#page{
+  height: 100vh;
+  background-image: url("./img/clock.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+#page>header>h1{
+  text-align: center;
+  color: navy;
+  font-size: 40px;
+  position: absolute;
+  top: 15%;
+  left: 44%;
+  
+  text-shadow:1px 1px 6px rgb(172, 61, 20);
+}
+
+#clock{
+  height: 50%;
+  width: 40%;
+  font-size: 26px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: navy;
+  text-align: center;
+  text-shadow:1px 1px 8px royalblue;
+  line-height: 100px;
+  background-color: rgb(201, 97, 133);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 20% 2%;
+}
