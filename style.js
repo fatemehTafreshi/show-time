@@ -1,6 +1,6 @@
-
-
-let clock = document.getElementById('clock');
+let clock=document.getElementById('clock');
+let daysOfWeek=document.getElementById('daysOfWeek');
+let time = document.getElementById('time');
 let date = new Date();
 let day=date.getDay();
 let hour = date.getHours();
@@ -21,9 +21,9 @@ function showMsg() {
     msg="Good Evening!";
   else
     msg="Good Night!";
-  clock.innerHTML="<br/>";
-  clock.innerText+=msg;
-  clock.innerHTML+="<br/>";
+  daysOfWeek.innerHTML="<br/>";
+  daysOfWeek.innerText+=msg;
+  daysOfWeek.innerHTML+="<br/>";
 
   switch(day){
     case 0:clock.innerText+="Today is Sunday :)";break;
@@ -35,12 +35,10 @@ function showMsg() {
     case 6:clock.innerText+="Today is Saturday :)";break;
   }
 
-  clock.innerHTML+="<br/>";
+  daysOfWeek.innerHTML+="<br/>";
 }
 
-function showTime() {
-  let time;
-  
+function showClock(){
   if (hour >= 12) {
     meridian = "PM";
     if (hour > 12)
@@ -52,12 +50,38 @@ function showTime() {
   if (second < 10)
     second = "0" + second;
   
-  time = hour + " : " + minute + " : " + second + "  " + meridian;
-  console.log(time);
-  clock.innerText += time;
+  let timeStr=`${hour}:${minute}:${second}  ${meridian}`;
+  time.innerHTML = timeStr;
   
 }
 
-
 showMsg();
-showTime();
+showClock();
+
+clock.appendChild(time);   
+
+setInterval( update , 1000);
+
+
+function update(){   
+  let now=new Date();
+  hour=now.getHours();
+  minute=now.getMinutes();
+  second=now.getSeconds();
+
+  if (hour >= 12) {
+    meridian = "PM";
+    if (hour > 12)
+      hour -= 12;
+  }
+  if (minute < 10)
+    minute = "0" + minute;
+
+  if (second < 10)
+    second = "0" + second;
+  
+  let timeStr=`${hour}:${minute}:${second}  ${meridian}`;
+  
+  time.innerHTML = timeStr; 
+  
+}
